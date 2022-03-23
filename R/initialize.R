@@ -94,7 +94,7 @@ table_to_df <-
 #' @description TODO: Add this.
 #' @param dfname the data.frame whose columns will be summarized.
 #' @param colname the name of the column to summarize.
-#' @importFrom dplyr group_by summarize mutate arrange desc
+#' @importFrom dplyr group_by summarise mutate arrange desc
 #' @export
 summarise_column <- function(dfname, colname) {
   dfname %>%
@@ -104,6 +104,7 @@ summarise_column <- function(dfname, colname) {
     arrange(desc(Count))
 }
 
+#' @importFrom dplyr left_join select mutate arrange
 make_comp_table <- function(before_df, after_df, by_what) {
   left_join(before_df, after_df,
             by = by_what,
@@ -115,6 +116,7 @@ make_comp_table <- function(before_df, after_df, by_what) {
     arrange(desc(Count.after))
 }
 
+#' @importFrom dplyr case_when
 getAllThursdays <-
   function(start_date = "2020-02-28",
            end_date = lubridate::today(),
@@ -164,6 +166,7 @@ loadRData <- function(fileName){
 
 `%nin%` = Negate(`%in%`)
 
+#' @importFrom grDevices png dev.off
 save_as_png <- function(x, filename, width = 1000, height = 500, pointsize = 14, res = 100) {
   png(filename = filename,
       width = width, height = height,
